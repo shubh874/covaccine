@@ -1,2 +1,2 @@
-/covac_server/node_modules
-/covac_server/covac_client/node_modules
+/node_modules
+.env
