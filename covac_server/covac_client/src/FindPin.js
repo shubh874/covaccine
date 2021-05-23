@@ -82,7 +82,7 @@ function FindPin() {
         const revDate =arrayDate.reverse();
         const formatDate = revDate.join("-");    
         console.log('entered fetch '+ formatDate);
-        const response = await axios.get('http://localhost:8080/findbypin',{
+        const response = await axios.get('/findbypin',{
             params:{
                 pin : pincode,
                 date:formatDate

@@ -24,7 +24,6 @@ const PORT = process.env.PORT || 8080;
 
 app.use(express.json())
 
-app.use(express.static(path.resolve(__dirname,'../covav_client/build',)));
 
 app.get('/findbypin', cors(),async (req,res)=>{
     try {
@@ -43,9 +42,15 @@ app.get('/findbypin', cors(),async (req,res)=>{
     }
 })
 
+if (process.env.NODE_ENV === 'production'){
+    
+app.use(express.static('covac_client/build'));
 app.get('*', (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../covac_client/build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'covac_client/build', 'index.html'));
   })
+
+
+}
 
 
 app.listen(PORT,()=>{
